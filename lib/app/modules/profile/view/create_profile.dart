@@ -263,6 +263,7 @@ class _CreateProfilePageState extends State<CreateProfilePage> {
               on_pressed: () {},
               text: 'Continue',
               width: Dimensions.screenWidth * 0.8,
+              
             )
           ]),
         ),

@@ -5,8 +5,8 @@ class Dimensions {
   //932 for iphone 14 Pro Max mobile emulator
   // 953 for Redmi Note 10
   static double screenHeight = Get.height;
-  //430
-  //436
+  //430 for iphone 14 Pro Max mobile emulator
+  //436 FOR Redmi Note 10
   static double screenWidth = Get.width;
 
   // dynamic height padding and margin

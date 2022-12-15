@@ -29,7 +29,7 @@ class _TabBarWidgetState extends State<TabBarWidget> {
 
   List<Widget> _buildScreens() {
     return [
-       CreateProfilePage(),
+       HomePage(),
       Container(
         child: const Center(child: Text("Next Page")),
       ),
@@ -47,7 +47,7 @@ class _TabBarWidgetState extends State<TabBarWidget> {
         inactiveColorPrimary: AppColors.grey,
       ),
       PersistentBottomNavBarItem(
-        icon:  Icon(Icons.mic ,color: AppColors.white, size: Dimensions.iconSize24*1.2,),
+        icon:  Icon(Icons.mic ,color: AppColors.white, size: Dimensions.iconSize24*1.4,),
        
         activeColorPrimary: AppColors.orange,
         inactiveColorPrimary: AppColors.orange,

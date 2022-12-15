@@ -2,7 +2,9 @@ import 'package:anubandhit/widgets/button.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../utils/colors.dart';
+import '../../../../utils/dimensions.dart';
 import '../../../../widgets/big_text.dart';
+import '../../detail_jobs/view/detail_job.dart';
 
 class ListOfJobs extends StatefulWidget {
   const ListOfJobs({super.key});
@@ -16,37 +18,37 @@ class _ListOfJobsState extends State<ListOfJobs> {
   Widget build(BuildContext context) {
     return SizedBox(
                     width: double.maxFinite,
-                    height: 470,
+                    height: Dimensions.height40*12,
                     child: GestureDetector(
                       onTap: (){
-                        print(MediaQuery.of(context).size.width.toString()+'  '+MediaQuery.of(context).size.height.toString());
+                        DetailJob.launch(context);
                       },
                       child: Card(
-                          margin: const EdgeInsets.symmetric(
-                              horizontal: 20, vertical: 5),
+                          margin: EdgeInsets.symmetric(
+                              horizontal: Dimensions.width20, vertical: Dimensions.height10),
                           shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(40)),
+                              borderRadius: BorderRadius.circular(Dimensions.radius20*2)),
                           elevation: 7,
                           child: Column(
                             children: [
                               ClipRRect(
-                                  borderRadius: const BorderRadius.only(
-                                      topLeft: Radius.circular(40),
-                                      topRight: Radius.circular(40)),
+                                  borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(Dimensions.radius20*2),
+                                      topRight: Radius.circular(Dimensions.radius20*2)),
                                   child: SizedBox(
                                       width: double.maxFinite,
-                                      height: 210,
+                                      height: Dimensions.height40*5.25,
                                       child: Image.network(
                                           'https://www.constructionexec.com/assets/site_18/images/article/081219110833.jpg?width=1280',
                                           fit: BoxFit.fill))),
                               ClipRRect(
-                                  borderRadius: const BorderRadius.only(
-                                      bottomLeft: Radius.circular(40),
-                                      bottomRight: Radius.circular(40)),
+                                  borderRadius: BorderRadius.only(
+                                      bottomLeft: Radius.circular(Dimensions.radius20*2),
+                                      bottomRight: Radius.circular(Dimensions.radius20*2)),
                                   child: Container(
-                                      padding: const EdgeInsets.symmetric(
-                                          horizontal: 20, vertical: 10),
-                                      height: 250,
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: Dimensions.width20, vertical: Dimensions.height10),
+                                      height: Dimensions.height10*25,
                                       child: Column(
                                         children: [
                                           Expanded(
@@ -63,7 +65,7 @@ class _ListOfJobsState extends State<ListOfJobs> {
                                                   BigText(
                                                       text: 'Vacancy ',
                                                       fontWeight: FontWeight.bold,
-                                                      size: 15),
+                                                      size: Dimensions.font15),
                                                   BigText(
                                                     text: '80',
                                                     fontWeight: FontWeight.bold,
@@ -93,14 +95,14 @@ class _ListOfJobsState extends State<ListOfJobs> {
                                                       BigText(
                                                           text: '  Location',
                                                           color: AppColors.orange,
-                                                          size: 15,
+                                                          size: Dimensions.font15,
                                                           fontWeight:
                                                               FontWeight.bold),
                                                       BigText(
                                                           text:
                                                               '  Jodhpur, Rajasthan',
                                                           color: AppColors.grey,
-                                                          size: 15,
+                                                          size: Dimensions.font15,
                                                           fontWeight:
                                                               FontWeight.bold)
                                                     ],
@@ -122,13 +124,13 @@ class _ListOfJobsState extends State<ListOfJobs> {
                                                       BigText(
                                                           text: '  Duration',
                                                           color: AppColors.orange,
-                                                          size: 15,
+                                                          size: Dimensions.font15,
                                                           fontWeight:
                                                               FontWeight.bold),
                                                       BigText(
                                                           text: '  3 months',
                                                           color: AppColors.grey,
-                                                          size: 15,
+                                                          size: Dimensions.font15,
                                                           fontWeight:
                                                               FontWeight.bold)
                                                     ],
@@ -157,14 +159,14 @@ class _ListOfJobsState extends State<ListOfJobs> {
                                                       BigText(
                                                           text: '  Company',
                                                           color: AppColors.orange,
-                                                          size: 15,
+                                                          size: Dimensions.font15,
                                                           fontWeight:
                                                               FontWeight.bold),
                                                       BigText(
                                                           text:
                                                               '  XYZ Steel Pvt Ltd.',
                                                           color: AppColors.grey,
-                                                          size: 15,
+                                                          size: Dimensions.font15,
                                                           fontWeight:
                                                               FontWeight.bold)
                                                     ],
@@ -186,13 +188,13 @@ class _ListOfJobsState extends State<ListOfJobs> {
                                                       BigText(
                                                           text: '  Pay',
                                                           color: AppColors.orange,
-                                                          size: 15,
+                                                          size: Dimensions.font15,
                                                           fontWeight:
                                                               FontWeight.bold),
                                                       BigText(
                                                           text: '  ₹650/day',
                                                           color: AppColors.grey,
-                                                          size: 15,
+                                                          size: Dimensions.font15,
                                                           fontWeight:
                                                               FontWeight.bold)
                                                     ],
@@ -205,8 +207,8 @@ class _ListOfJobsState extends State<ListOfJobs> {
                                               child: Row(
                                            
                                             children: [
-                                              Expanded(child: Button(on_pressed: (){}, text: 'Detail',boxBorder: Border.all(color: AppColors.orange),margin: const EdgeInsets.symmetric(horizontal: 10),textColor: AppColors.orange,textSize: 15,)),
-                                               Expanded(child: Button(on_pressed: (){}, text: 'Apply Now',boxBorder: null,margin: const EdgeInsets.symmetric(horizontal: 10),textColor: AppColors.white,color: AppColors.orange,textSize: 15,),)
+                                              Expanded(child: Button(on_pressed: (){}, text: 'Detail',boxBorder: Border.all(color: AppColors.orange),margin: EdgeInsets.symmetric(horizontal: Dimensions.height10),textColor: AppColors.orange,textSize: Dimensions.font15,color: AppColors.white)),
+                                               Expanded(child: Button(on_pressed: (){}, text: 'Apply Now',boxBorder: null,margin: EdgeInsets.symmetric(horizontal: Dimensions.height10),textColor: AppColors.white,color: AppColors.orange,textSize: Dimensions.font15,),)
                                             ]
                                           ))
                                         ],

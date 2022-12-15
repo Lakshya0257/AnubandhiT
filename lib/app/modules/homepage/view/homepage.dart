@@ -1,5 +1,6 @@
 import 'package:anubandhit/app/modules/homepage/view/list_of_jobs.dart';
 import 'package:flutter/material.dart';
+import '../../../../utils/dimensions.dart';
 import '../../../../widgets/big_text.dart';
 
 class HomePage extends StatelessWidget {
@@ -13,7 +14,7 @@ class HomePage extends StatelessWidget {
       body: Column(children: [
         Expanded(
             child: Padding(
-                padding: const EdgeInsets.fromLTRB(20, 0, 20, 10),
+                padding:  EdgeInsets.fromLTRB(Dimensions.width20, 0, Dimensions.width20, Dimensions.height10),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -27,8 +28,8 @@ class HomePage extends StatelessWidget {
                             Icons.menu_outlined,
                           ),
                         ),
-                        const CircleAvatar(
-                          radius: 20,
+                        CircleAvatar(
+                          radius: Dimensions.width20,
                           backgroundImage: NetworkImage(
                               'https://blog.readyplayer.me/content/images/2021/04/IMG_0689.PNG'),
                         ),
@@ -36,7 +37,7 @@ class HomePage extends StatelessWidget {
                     ),
                     BigText(
                       text: 'Job Opening',
-                      size: 32,
+                      size: Dimensions.font26*1.23,
                       fontWeight: FontWeight.bold,
                     ),
                   ],

@@ -1,10 +1,9 @@
 // ignore_for_file: non_constant_identifier_names, must_be_immutable
-
-import 'package:anubandhit/utils/colors.dart';
 import 'package:anubandhit/widgets/small_text.dart';
 import 'package:flutter/material.dart';
 
 
+import '../utils/colors.dart';
 import '../utils/dimensions.dart';
 
 class Button extends StatelessWidget {
@@ -23,11 +22,11 @@ class Button extends StatelessWidget {
       required this.on_pressed,
       required this.text,
       this.boxBorder,
-      this.textColor,
+      this.textColor=AppColors.white,
       this.margin,
-      this.width,
-      this.color,
-      this.height})
+      this.width=0,
+      this.color=AppColors.orange,
+      this.height=0})
       : super(key: key);
 
   @override
@@ -35,8 +34,8 @@ class Button extends StatelessWidget {
     return TextButton(
         onPressed: on_pressed,
         child: Container(
-          width:width,
-          height: height,
+          width:width==0 ? Dimensions.screenWidth*0.6 : width,
+          height: height ==0 ? Dimensions.screenWidth*0.15 : height,
           margin: margin,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(8)),
