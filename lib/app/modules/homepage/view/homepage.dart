@@ -4,13 +4,17 @@ import '../../../../utils/dimensions.dart';
 import '../../../../widgets/big_text.dart';
 
 class HomePage extends StatelessWidget {
-  static launch(BuildContext context) => Navigator.pushNamed(context, '/');
-  const HomePage({super.key});
+  static launch(BuildContext context) => Navigator.of(context).pushNamed('/');
+HomePage({super.key});
 
+  
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
+          key: _scaffoldKey,
+          drawer: Drawer(),
       body: Column(children: [
         Expanded(
             child: Padding(
@@ -23,7 +27,9 @@ class HomePage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            _scaffoldKey.currentState!.openDrawer();
+                          },
                           icon: const Icon(
                             Icons.menu_outlined,
                           ),

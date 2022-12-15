@@ -103,8 +103,7 @@ class _ListOfJobsState extends State<ListOfJobs> {
                                                               '  Jodhpur, Rajasthan',
                                                           color: AppColors.grey,
                                                           size: Dimensions.font15,
-                                                          fontWeight:
-                                                              FontWeight.bold)
+                                                          )
                                                     ],
                                                   ),
                                                 ],
@@ -131,8 +130,7 @@ class _ListOfJobsState extends State<ListOfJobs> {
                                                           text: '  3 months',
                                                           color: AppColors.grey,
                                                           size: Dimensions.font15,
-                                                          fontWeight:
-                                                              FontWeight.bold)
+                                                          )
                                                     ],
                                                   ),
                                                 ],
@@ -167,8 +165,7 @@ class _ListOfJobsState extends State<ListOfJobs> {
                                                               '  XYZ Steel Pvt Ltd.',
                                                           color: AppColors.grey,
                                                           size: Dimensions.font15,
-                                                          fontWeight:
-                                                              FontWeight.bold)
+                                                          )
                                                     ],
                                                   ),
                                                 ],
@@ -195,8 +192,7 @@ class _ListOfJobsState extends State<ListOfJobs> {
                                                           text: '  ₹650/day',
                                                           color: AppColors.grey,
                                                           size: Dimensions.font15,
-                                                          fontWeight:
-                                                              FontWeight.bold)
+                                                          )
                                                     ],
                                                   ),
                                                 ],

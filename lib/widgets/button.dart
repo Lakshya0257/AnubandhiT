@@ -11,6 +11,7 @@ class Button extends StatelessWidget {
   final String text;
   double? width;
   double? height;
+  double? radius;
   Color? color;
   double? textSize;
   Color? textColor;
@@ -21,6 +22,7 @@ class Button extends StatelessWidget {
       this.textSize=0,
       required this.on_pressed,
       required this.text,
+      this.radius=8,
       this.boxBorder,
       this.textColor=AppColors.white,
       this.margin,
@@ -38,7 +40,7 @@ class Button extends StatelessWidget {
           height: height ==0 ? Dimensions.screenWidth*0.15 : height,
           margin: margin,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(8)),
+            borderRadius: BorderRadius.all(Radius.circular(radius!.toDouble())),
             border: boxBorder,
             color: color
           ),

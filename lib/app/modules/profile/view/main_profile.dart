@@ -31,10 +31,10 @@ class _MainProfilePageState extends State<MainProfilePage> {
             SizedBox(
               height: Dimensions.height40,
               child: Row(children: [
-                Icon(
-                  Icons.arrow_back,
+                IconButton(icon: Icon(
+                  Icons.menu_outlined,
                   color: AppColors.black,
-                  size: Dimensions.iconSize24 * 1.4,
+                ),onPressed: (){},
                 )
               ]),
             ),
@@ -112,10 +112,14 @@ class _MainProfilePageState extends State<MainProfilePage> {
                         GestureDetector(
                           onTap: () {
                             Get.dialog(Container(
-                              width: Dimensions.width40*3,
-                              height: Dimensions.height40*3,
-                              // margin:EdgeInsets.symmetric(horizontal: Dimensions.width20,vertical: Dimensions.height40),
-                              color: Colors.black,
+                              // width: Dimensions.width40*3,
+                              // height: Dimensions.height40*3,
+                              margin:EdgeInsets.symmetric(horizontal: Dimensions.width40,vertical: Dimensions.height40*3),
+                              
+                              decoration: BoxDecoration(
+                                color: AppColors.white,
+                                borderRadius: BorderRadius.circular(Dimensions.radius15)
+                              ),
                               
                             ));
                           },
