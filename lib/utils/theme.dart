@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class MyTheme {
   static ThemeData lightTheme(BuildContext context) => ThemeData(
-      primarySwatch: AppColors.orange,
+      primaryColor: AppColors.orange,
       fontFamily: 'RedHat',
       scaffoldBackgroundColor: AppColors.white,
       colorScheme: const ColorScheme.light());
