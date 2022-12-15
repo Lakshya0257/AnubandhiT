@@ -4,8 +4,10 @@ import 'package:get/get.dart';
 
 class Dimensions {
   //932 for iphone 14 Pro Max mobile emulator
+  // 953 for Redmi Note 10
   static double screenHeight = Get.height;
   //430
+  //436
   static double screenWidth = Get.width;
 
   // dynamic height padding and margin
