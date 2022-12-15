@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names, must_be_immutable
+
 import 'package:anubandhit/utils/colors.dart';
 import 'package:anubandhit/widgets/small_text.dart';
 import 'package:flutter/material.dart';
@@ -10,12 +12,22 @@ class Button extends StatelessWidget {
   final String text;
   double? width;
   double? height;
+  Color? color;
+  double? textSize;
+  Color? textColor;
+  BoxBorder? boxBorder;
+  EdgeInsetsGeometry? margin;
   Button(
       {Key? key,
+      this.textSize=0,
       required this.on_pressed,
       required this.text,
-      this.width = 0,
-      this.height = 0})
+      this.boxBorder,
+      this.textColor,
+      this.margin,
+      this.width,
+      this.color,
+      this.height})
       : super(key: key);
 
   @override
@@ -23,14 +35,16 @@ class Button extends StatelessWidget {
     return TextButton(
         onPressed: on_pressed,
         child: Container(
-          width: width == 0 ? Dimensions.screenWidth*0.6 : width,
-          height: height == 0 ? Dimensions.screenWidth*0.15 : height,
+          width:width,
+          height: height,
+          margin: margin,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(Dimensions.radius20)),
-            color: AppColors.orange
+            borderRadius: BorderRadius.all(Radius.circular(8)),
+            border: boxBorder,
+            color: color
           ),
           child: Center(
-            child: SmallText(text: text, size: Dimensions.font20, color: AppColors.white, fontWeight: FontWeight.bold,),
+            child: SmallText(text: text, size: textSize==0? Dimensions.font20 : textSize!, color: textColor, fontWeight: FontWeight.bold,),
           ),
         ));
   }
