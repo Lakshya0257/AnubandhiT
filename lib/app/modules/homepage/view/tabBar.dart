@@ -29,7 +29,7 @@ class _TabBarWidgetState extends State<TabBarWidget> {
 
   List<Widget> _buildScreens() {
     return [
-       HomePage(),
+       CreateProfilePage(),
       Container(
         child: const Center(child: Text("Next Page")),
       ),
