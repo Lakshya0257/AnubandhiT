@@ -5,8 +5,9 @@ import 'package:anubandhit/widgets/button.dart';
 import 'package:flutter/material.dart';
 import 'package:timelines/timelines.dart';
 
-import '../../../../utils/colors.dart';
-import '../../../../utils/dimensions.dart';
+import '../../../../../utils/colors.dart';
+import '../../../../../utils/dimensions.dart';
+
 
 class MainProfilePage extends StatefulWidget {
   static launch(BuildContext context) =>

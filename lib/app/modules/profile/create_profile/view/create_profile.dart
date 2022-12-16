@@ -7,7 +7,8 @@ import 'package:anubandhit/widgets/text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 
-import '../../../../utils/dimensions.dart';
+import '../../../../../utils/dimensions.dart';
+
 
 class CreateProfilePage extends StatefulWidget {
   static launch(BuildContext context) =>
