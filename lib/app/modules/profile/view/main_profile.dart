@@ -23,6 +23,9 @@ class _MainProfilePageState extends State<MainProfilePage> {
   bool onTapWorkHistory = false;
   bool isChecked1 = false;
   bool isChecked2 = false;
+  bool isChecked3 = false;
+  bool isChecked4 = false;
+  bool isChecked5 = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -344,9 +347,124 @@ class _MainProfilePageState extends State<MainProfilePage> {
                                         )),
                                   ),
                                 ),
-                                TimelineNode(),
-                                TimelineNode(),
-                                TimelineNode(),
+                                TimelineTile(
+                                  contents: Card(
+                                    child: Container(
+                                      padding: EdgeInsets.all(8.0),
+                                      child: Text('contents'),
+                                    ),
+                                  ),
+                                  nodeAlign: TimelineNodeAlign.start,
+                                  node: TimelineNode(
+                                    //? to remove default padding of checkbox, wrap it inside SizedBox and give dimensions.
+                                    indicator: SizedBox(
+                                      height: Dimensions.height18,
+                                      width: Dimensions.height18,
+                                      child: Checkbox(
+                                        checkColor: Colors.white,
+                                        fillColor: MaterialStateProperty.all(
+                                            Color(0xFF029B02)),
+                                        value: isChecked3,
+                                        shape: CircleBorder(),
+                                        materialTapTargetSize:
+                                            MaterialTapTargetSize.shrinkWrap,
+                                        onChanged: (bool? value) {
+                                          setState(() {
+                                            isChecked3 = value!;
+                                          });
+                                        },
+                                      ),
+                                    ),
+                                    startConnector: SizedBox(
+                                        height: Dimensions.height15,
+                                        child: SolidLineConnector(
+                                          color: AppColors.grey,
+                                        )),
+                                    endConnector: SizedBox(
+                                        height: Dimensions.height15,
+                                        child: SolidLineConnector(
+                                          color: AppColors.grey,
+                                        )),
+                                  ),
+                                ),TimelineTile(
+                                  contents: Card(
+                                    child: Container(
+                                      padding: EdgeInsets.all(8.0),
+                                      child: Text('contents'),
+                                    ),
+                                  ),
+                                  nodeAlign: TimelineNodeAlign.start,
+                                  node: TimelineNode(
+                                    //? to remove default padding of checkbox, wrap it inside SizedBox and give dimensions.
+                                    indicator: SizedBox(
+                                      height: Dimensions.height18,
+                                      width: Dimensions.height18,
+                                      child: Checkbox(
+                                        checkColor: Colors.white,
+                                        fillColor: MaterialStateProperty.all(
+                                            Color(0xFF029B02)),
+                                        value: isChecked4,
+                                        shape: CircleBorder(),
+                                        materialTapTargetSize:
+                                            MaterialTapTargetSize.shrinkWrap,
+                                        onChanged: (bool? value) {
+                                          setState(() {
+                                            isChecked4 = value!;
+                                          });
+                                        },
+                                      ),
+                                    ),
+                                    startConnector: SizedBox(
+                                        height: Dimensions.height15,
+                                        child: SolidLineConnector(
+                                          color: AppColors.grey,
+                                        )),
+                                    endConnector: SizedBox(
+                                        height: Dimensions.height15,
+                                        child: SolidLineConnector(
+                                          color: AppColors.grey,
+                                        )),
+                                  ),
+                                ),TimelineTile(
+                                  contents: Card(
+                                    child: Container(
+                                      padding: EdgeInsets.all(8.0),
+                                      child: Text('contents'),
+                                    ),
+                                  ),
+                                  nodeAlign: TimelineNodeAlign.start,
+                                  node: TimelineNode(
+                                    //? to remove default padding of checkbox, wrap it inside SizedBox and give dimensions.
+                                    indicator: SizedBox(
+                                      height: Dimensions.height18,
+                                      width: Dimensions.height18,
+                                      child: Checkbox(
+                                        checkColor: Colors.white,
+                                        fillColor: MaterialStateProperty.all(
+                                            Color(0xFF029B02)),
+                                        value: isChecked5,
+                                        shape: CircleBorder(),
+                                        materialTapTargetSize:
+                                            MaterialTapTargetSize.shrinkWrap,
+                                        onChanged: (bool? value) {
+                                          setState(() {
+                                            isChecked5 = value!;
+                                          });
+                                        },
+                                      ),
+                                    ),
+                                    startConnector: SizedBox(
+                                        height: Dimensions.height15,
+                                        child: SolidLineConnector(
+                                          color: AppColors.grey,
+                                        )),
+                                    endConnector: SizedBox(
+                                        height: Dimensions.height15,
+                                        child: SolidLineConnector(
+                                          color: AppColors.grey,
+                                        )),
+                                  ),
+                                ),
                               ]),
                             )
                           : SizedBox(
