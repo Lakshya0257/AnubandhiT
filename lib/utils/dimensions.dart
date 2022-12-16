@@ -2,11 +2,11 @@
 import 'package:get/get.dart';
 
 class Dimensions {
-  //932 for iphone 14 Pro Max mobile emulator
-  // 953 for Redmi Note 10
+  //? 932 for iphone 14 Pro Max mobile emulator
+  //? 953 for Redmi Note 10
   static double screenHeight = Get.height;
-  //430 for iphone 14 Pro Max mobile emulator
-  //436 FOR Redmi Note 10
+  //? 430 for iphone 14 Pro Max mobile emulator
+  //? 436 FOR Redmi Note 10
   static double screenWidth = Get.width;
 
   // dynamic height padding and margin
@@ -28,7 +28,11 @@ class Dimensions {
 
   //* navBarHeight (PERSISTANT BOTTOM NAVIGATION BAR)
   // 932/50 = 18.64
-  static double navBarHeight50 = screenHeight/18.64;
+  static double navBarHeight50 = screenHeight / 18.64;
+
+  //? checkbox SizedBox height to remove default padding
+  // 932/18 =51.77
+  static double height18 = screenHeight / 51.77;
 
   //font size
   static double font15 = screenHeight / 62.1;
@@ -46,18 +50,6 @@ class Dimensions {
   static double iconSize20 = screenHeight / 46.6;
   static double iconSize16 = screenHeight / 58.2;
 
-  //list view size
-  // 430/120 = 3.58
-  static double listViewImgSize = screenWidth / 3.5;
-  static double listViewTextContSize = screenWidth / 4.3;
-
-  // 932/350 =2.66
-  static double popularFoodImgSize = screenHeight / 2.6;
-
-  //bottom height
-  // 932/160 = 5.82
-  static double bottomHeightBar = screenHeight / 5.8;
-
   //text_field widget size
   // 430/350 = 1.22
   // 932/60 = 15.53
@@ -65,7 +57,4 @@ class Dimensions {
   static double text_field_width = screenWidth / 1.2;
   // static double text_field_height = screenHeight / 15.5;
   static double text_field_height50 = screenHeight / 18.6;
-
-  //splash screen dimensions
-  static double splashImg = screenHeight / 3.7;
 }

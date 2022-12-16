@@ -2,9 +2,8 @@
 
 import 'package:anubandhit/widgets/big_text.dart';
 import 'package:anubandhit/widgets/button.dart';
-import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:timelines/timelines.dart';
 
 import '../../../../utils/colors.dart';
 import '../../../../utils/dimensions.dart';
@@ -19,6 +18,11 @@ class MainProfilePage extends StatefulWidget {
 }
 
 class _MainProfilePageState extends State<MainProfilePage> {
+  bool onTapBankDetails = false;
+  bool onTapCurrentJobStatus = false;
+  bool onTapWorkHistory = false;
+  bool isChecked1 = false;
+  bool isChecked2 = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,10 +35,12 @@ class _MainProfilePageState extends State<MainProfilePage> {
             SizedBox(
               height: Dimensions.height40,
               child: Row(children: [
-                IconButton(icon: Icon(
-                  Icons.menu_outlined,
-                  color: AppColors.black,
-                ),onPressed: (){},
+                IconButton(
+                  icon: Icon(
+                    Icons.menu_outlined,
+                    color: AppColors.black,
+                  ),
+                  onPressed: () {},
                 )
               ]),
             ),
@@ -84,7 +90,17 @@ class _MainProfilePageState extends State<MainProfilePage> {
               height: Dimensions.height15,
             ),
             SizedBox(
-              height: Dimensions.height40 * 5,
+              height: (() {
+                //! your code here
+
+                if (onTapBankDetails ||
+                    onTapCurrentJobStatus ||
+                    onTapWorkHistory) {
+                  return Dimensions.height40 * 10;
+                } else {
+                  return Dimensions.height40 * 5;
+                }
+              }()),
               width: double.maxFinite / 1.2,
               child: Container(
                 margin: EdgeInsets.symmetric(horizontal: Dimensions.width15),
@@ -96,96 +112,314 @@ class _MainProfilePageState extends State<MainProfilePage> {
                   padding: EdgeInsets.symmetric(
                       horizontal: Dimensions.width20,
                       vertical: Dimensions.height15),
-                  child: Column(children: [
-                    SizedBox(
-                      height: Dimensions.height10,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        SizedBox(
-                          child: Container(
-                              decoration:
-                                  BoxDecoration(color: Color(0xFFFFF0D2)),
-                              child: BigText(text: 'Bank Details')),
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            Get.dialog(Container(
-                              // width: Dimensions.width40*3,
-                              // height: Dimensions.height40*3,
-                              margin:EdgeInsets.symmetric(horizontal: Dimensions.width40,vertical: Dimensions.height40*3),
-                              
+                  child: SingleChildScrollView(
+                    child: Column(children: [
+                      SizedBox(
+                        height: Dimensions.height10,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          onTapBankDetails
+                              ? Row(
+                                  children: [
+                                    Container(
+                                        decoration: BoxDecoration(
+                                            color: Color(0xFFFFF0D2)),
+                                        child: BigText(
+                                          text: 'Bank Details',
+                                          fontWeight: FontWeight.w600,
+                                        )),
+                                    SizedBox(
+                                      width: Dimensions.width20,
+                                    ),
+                                    Icon(
+                                      Icons.edit_outlined,
+                                      color: AppColors.black,
+                                      size: Dimensions.iconSize24 * 1.2,
+                                    )
+                                  ],
+                                )
+                              : SizedBox(
+                                  child: Container(
+                                      decoration: BoxDecoration(
+                                          color: Color(0xFFFFF0D2)),
+                                      child: BigText(text: 'Bank Details')),
+                                ),
+                          GestureDetector(
+                            onTap: () {
+                              // Get.dialog(Container(
+
+                              //   margin: EdgeInsets.symmetric(
+                              //       horizontal: Dimensions.width40,
+                              //       vertical: Dimensions.height40 * 3),
+
+                              //   decoration: BoxDecoration(
+                              //       color: AppColors.white,
+                              //       borderRadius: BorderRadius.circular(
+                              //           Dimensions.radius15)),
+                              // ));
+                              setState(() {
+                                onTapBankDetails = !onTapBankDetails;
+                              });
+                            },
+                            child: Icon(
+                              onTapBankDetails
+                                  ? Icons.arrow_drop_up
+                                  : Icons.arrow_drop_down,
+                              color: AppColors.black,
+                              size: Dimensions.iconSize24 * 1.2,
+                            ),
+                          )
+                        ],
+                      ),
+                      onTapBankDetails
+                          ? SizedBox(
+                              height: Dimensions.height10,
+                            )
+                          : SizedBox(),
+                      onTapBankDetails
+                          ? Container(
+                              width: double.maxFinite,
+                              height: Dimensions.height40 * 5.5,
                               decoration: BoxDecoration(
-                                color: AppColors.white,
-                                borderRadius: BorderRadius.circular(Dimensions.radius15)
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10)),
+                                  color: AppColors.white),
+                              child: Padding(
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: Dimensions.width10 * 1.5,
+                                    vertical: Dimensions.height10 * 1.5),
+                                child: Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    BigText(text: 'Bank Name'),
+                                    BigText(text: 'Branch Name'),
+                                    BigText(text: 'IFSC/ branch code'),
+                                    BigText(text: 'Account Number'),
+                                    BigText(text: 'Mobile Number'),
+                                  ],
+                                ),
                               ),
-                              
-                            ));
-                          },
-                          child: Icon(
-                            Icons.arrow_drop_down,
-                            color: AppColors.black,
-                            size: Dimensions.iconSize24 * 1.2,
-                          ),
-                        )
-                      ],
-                    ),
-                    SizedBox(
-                      height: Dimensions.height10,
-                    ),
-                    SizedBox(
-                      width: double.maxFinite * 0.8,
-                      child: Divider(
-                        color: AppColors.black,
-                        thickness: 1,
+                            )
+                          : SizedBox(
+                              height: Dimensions.height10,
+                            ),
+                      onTapBankDetails
+                          ? SizedBox()
+                          : SizedBox(
+                              width: double.maxFinite * 0.8,
+                              child: Divider(
+                                color: AppColors.black,
+                                thickness: 1,
+                              ),
+                            ),
+                      SizedBox(
+                        height: Dimensions.height10,
                       ),
-                    ),
-                    SizedBox(
-                      height: Dimensions.height10,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        BigText(text: 'Current Job Status'),
-                        GestureDetector(
-                          onTap: () {},
-                          child: Icon(
-                            Icons.arrow_drop_down,
-                            color: AppColors.black,
-                            size: Dimensions.iconSize24 * 1.2,
-                          ),
-                        )
-                      ],
-                    ),
-                    SizedBox(
-                      height: Dimensions.height10,
-                    ),
-                    SizedBox(
-                      width: double.maxFinite * 0.8,
-                      child: Divider(
-                        color: AppColors.black,
-                        thickness: 1,
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          onTapCurrentJobStatus
+                              ? Row(
+                                  children: [
+                                    BigText(
+                                      text: 'Current Job Status',
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                    SizedBox(
+                                      width: Dimensions.width20,
+                                    ),
+                                    Icon(
+                                      Icons.edit_outlined,
+                                      color: AppColors.black,
+                                      size: Dimensions.iconSize24 * 1.2,
+                                    )
+                                  ],
+                                )
+                              : BigText(text: 'Current Job Status'),
+                          GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                onTapCurrentJobStatus = !onTapCurrentJobStatus;
+                              });
+                            },
+                            child: Icon(
+                              onTapCurrentJobStatus
+                                  ? Icons.arrow_drop_up
+                                  : Icons.arrow_drop_down,
+                              color: AppColors.black,
+                              size: Dimensions.iconSize24 * 1.2,
+                            ),
+                          )
+                        ],
                       ),
-                    ),
-                    SizedBox(
-                      height: Dimensions.height10,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        BigText(text: 'Work History'),
-                        GestureDetector(
-                          onTap: () {},
-                          child: Icon(
-                            Icons.arrow_drop_down,
-                            color: AppColors.black,
-                            size: Dimensions.iconSize24 * 1.2,
-                          ),
-                        )
-                      ],
-                    ),
-                  ]),
+                      onTapCurrentJobStatus
+                          ? SizedBox(
+                              height: Dimensions.height10,
+                            )
+                          : SizedBox(),
+                      onTapCurrentJobStatus
+                          ? Container(
+                              width: double.maxFinite,
+                              height: Dimensions.height40 * 7.5,
+                              decoration: BoxDecoration(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10)),
+                                  color: AppColors.white),
+                              child: Column(children: [
+                                TimelineTile(
+                                  contents: Card(
+                                    child: Container(
+                                      padding: EdgeInsets.all(8.0),
+                                      child: Text('contents'),
+                                    ),
+                                  ),
+                                  nodeAlign: TimelineNodeAlign.start,
+                                  node: TimelineNode(
+                                    indicator: SizedBox(
+                                      height: Dimensions.height18,
+                                      width: Dimensions.height18,
+                                      child: Checkbox(
+                                        checkColor: Colors.white,
+                                        fillColor: MaterialStateProperty.all(
+                                            Color(0xFF029B02)),
+                                        value: isChecked1,
+                                        shape: CircleBorder(),
+                                        materialTapTargetSize:
+                                            MaterialTapTargetSize.shrinkWrap,
+                                        onChanged: (bool? value) {
+                                          setState(() {
+                                            isChecked1 = value!;
+                                          });
+                                        },
+                                      ),
+                                    ),
+                                    endConnector: SizedBox(
+                                        height: Dimensions.height15,
+                                        child: SolidLineConnector(
+                                          color: AppColors.grey,
+                                        )),
+                                  ),
+                                ),
+                                TimelineTile(
+                                  contents: Card(
+                                    child: Container(
+                                      padding: EdgeInsets.all(8.0),
+                                      child: Text('contents'),
+                                    ),
+                                  ),
+                                  nodeAlign: TimelineNodeAlign.start,
+                                  node: TimelineNode(
+                                    //? to remove default padding of checkbox, wrap it inside SizedBox and give dimensions.
+                                    indicator: SizedBox(
+                                      height: Dimensions.height18,
+                                      width: Dimensions.height18,
+                                      child: Checkbox(
+                                        checkColor: Colors.white,
+                                        fillColor: MaterialStateProperty.all(
+                                            Color(0xFF029B02)),
+                                        value: isChecked2,
+                                        shape: CircleBorder(),
+                                        materialTapTargetSize:
+                                            MaterialTapTargetSize.shrinkWrap,
+                                        onChanged: (bool? value) {
+                                          setState(() {
+                                            isChecked2 = value!;
+                                          });
+                                        },
+                                      ),
+                                    ),
+                                    startConnector: SizedBox(
+                                        height: Dimensions.height15,
+                                        child: SolidLineConnector(
+                                          color: AppColors.grey,
+                                        )),
+                                    endConnector: SizedBox(
+                                        height: Dimensions.height15,
+                                        child: SolidLineConnector(
+                                          color: AppColors.grey,
+                                        )),
+                                  ),
+                                ),
+                                TimelineNode(),
+                                TimelineNode(),
+                                TimelineNode(),
+                              ]),
+                            )
+                          : SizedBox(
+                              height: Dimensions.height10,
+                            ),
+                      onTapCurrentJobStatus
+                          ? SizedBox()
+                          : SizedBox(
+                              width: double.maxFinite * 0.8,
+                              child: Divider(
+                                color: AppColors.black,
+                                thickness: 1,
+                              ),
+                            ),
+                      SizedBox(
+                        height: Dimensions.height10,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          onTapWorkHistory
+                              ? Row(
+                                  children: [
+                                    BigText(
+                                      text: 'Work History',
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                    SizedBox(
+                                      width: Dimensions.width20,
+                                    ),
+                                    Icon(
+                                      Icons.edit_outlined,
+                                      color: AppColors.black,
+                                      size: Dimensions.iconSize24 * 1.2,
+                                    )
+                                  ],
+                                )
+                              : BigText(text: 'Work History'),
+                          GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                onTapWorkHistory = !onTapWorkHistory;
+                              });
+                            },
+                            child: Icon(
+                              onTapWorkHistory
+                                  ? Icons.arrow_drop_up
+                                  : Icons.arrow_drop_down,
+                              color: AppColors.black,
+                              size: Dimensions.iconSize24 * 1.2,
+                            ),
+                          )
+                        ],
+                      ),
+                      onTapWorkHistory
+                          ? SizedBox(
+                              height: Dimensions.height10,
+                            )
+                          : SizedBox(),
+                      onTapWorkHistory
+                          ? Container(
+                              width: double.maxFinite,
+                              height: Dimensions.height40 * 5.5,
+                              decoration: BoxDecoration(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10)),
+                                  color: AppColors.white),
+                            )
+                          : SizedBox(
+                              height: Dimensions.height10,
+                            ),
+                    ]),
+                  ),
                 ),
               ),
             ),
